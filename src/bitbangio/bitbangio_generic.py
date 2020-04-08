@@ -2,7 +2,7 @@ import operator
 from ..adafruit_blinka.agnostic import detector
 
 
-class GenericSPI(object):
+class GenericSPI:
     """Software-based implementation of the SPI protocol over GPIO pins."""
 
     MSB = 0
@@ -13,6 +13,11 @@ class GenericSPI(object):
     baudrate = 100000
     mode = 0
     bits = 8
+
+    def __init__(self, portid):
+        # Even that the port is never used, it is needed for
+        # instantiation purposes and for following base object creation.
+        self.port = portid
 
     def init(self, baudrate=100000, polarity=0, phase=0, bits=8,
                   firstbit=MSB, sck=None, mosi=None, miso=None, ce=None):
