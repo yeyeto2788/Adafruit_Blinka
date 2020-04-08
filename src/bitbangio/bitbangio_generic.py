@@ -16,11 +16,15 @@ class GenericSPI(object):
 
     def init(self, baudrate=100000, polarity=0, phase=0, bits=8,
                   firstbit=MSB, sck=None, mosi=None, miso=None, ce=None):
-        """Initialize bit bang (or software) based SPI.  Must provide a DigitalInOut
-        class, the SPI clock, and optionally MOSI, MISO, and CE (chip enable)
-        pin numbers. If MOSI is set to None then writes will be disabled and fail
-        with an error, likewise for MISO reads will be disabled.  If CE is set to
-        None then CE will not be asserted high/low by the library when
+        """Initialize bit bang (or software) based SPI.
+
+        Must provide a DigitalInOut class, the SPI clock, and optionally MOSI, MISO,
+        and CE (chip enable) pin objects.
+
+        If MOSI is set to None then writes will be disabled and fail with an error,
+        likewise for MISO reads will be disabled.
+
+        If CE is set to None then CE will not be asserted high/low by the library when
         transfering data.
         """
         mode = 0
@@ -69,8 +73,9 @@ class GenericSPI(object):
         pass
 
     def set_mode(self, mode):
-        """Set SPI mode which controls clock polarity and phase.  Should be a
-        numeric value 0, 1, 2, or 3.  See wikipedia page for details on meaning:
+        """Set SPI mode which controls clock polarity and phase.
+
+        Should be a numeric value 0, 1, 2, or 3.  See wikipedia page for details on meaning:
         http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
         """
         if mode < 0 or mode > 3:
@@ -190,7 +195,7 @@ class GenericSPI(object):
             self.ce_pin.value(True)
         return result
 
-    def transfer(self, data) -> bytearray:
+    def transfer(self, data):
         """Full-duplex SPI read and write.
 
         The CE line will be asserted low, the specified bytes will be clocked
