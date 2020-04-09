@@ -1,5 +1,5 @@
 import operator
-from ..adafruit_blinka.agnostic import detector
+from adafruit_blinka.agnostic import detector
 
 
 class GenericSPI:

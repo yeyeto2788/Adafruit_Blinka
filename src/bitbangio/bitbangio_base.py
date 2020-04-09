@@ -7,7 +7,7 @@ See `CircuitPython:bitbangio` in CircuitPython for more details.
 * Author(s): cefn
 """
 
-from ..adafruit_blinka import Lockable, agnostic
+from adafruit_blinka import Lockable, agnostic
 import adafruit_platformdetect.constants.boards as ap_board
 
 

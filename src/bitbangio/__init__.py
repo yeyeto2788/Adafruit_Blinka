@@ -1,4 +1,4 @@
-from ..adafruit_blinka.agnostic import detector
+from adafruit_blinka.agnostic import detector
 
 # Only import the new bitbang SPI if is a linux device
 if detector.board.any_embedded_linux:
